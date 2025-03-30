@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/musserdn/SproutSwap#readme",
+  "bugs": {
+    "url": "https://github.com/musserdn/SproutSwap/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musserdn/SproutSwap.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

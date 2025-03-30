@@ -1,0 +1,29 @@
+{
+  "name": "sproutswap",
+  "version": "1.0.0",
+  "description": "A community-driven plant care and swapping platform for gardening enthusiasts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musserdn/SproutSwap.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/musserdn/SproutSwap/issues"
+  },
+  "homepage": "https://github.com/musserdn/SproutSwap#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "cypress": "^14.2.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "vite": "^6.2.3",
+    "vitest": "^3.0.9"
+  }
+}
