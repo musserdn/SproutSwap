@@ -4,7 +4,19 @@
   "description": "A community-driven plant care and swapping platform for gardening enthusiasts.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"wait-on tcp:3001 && cd client && npm run dev\"",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run watch",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client:dev": "cd client && npm run dev",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "render-build": "npm install && npm run build",
+    "test:e2e": "npx cypress run --browser electron --headless",
+    "test:component": "npx cypress run --component --browser electron --headless",
+    "test": "npm run test:e2e && npm run test:component",
+    "test-gui": "npx cypress open --detached"
   },
   "repository": {
     "type": "git",
