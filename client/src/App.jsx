@@ -1,17 +1,17 @@
-// Bringing in the required import from 'react-router-dom'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom'; // Import useLocation
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-
 function App() {
-  // The Outlet component will conditionally swap between the different pages according to the URL
+  const location = useLocation(); // Get the current route
+  const hideNavbarRoutes = ['/login', '/create-account']; // Define routes where the navbar should be hidden
 
   return (
     <>
       <Header />
-      <Navbar />
+      {/* Only show Navbar if the current path is NOT in the hideNavbarRoutes array */}
+      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
       <main>
         <Outlet />
       </main>
@@ -20,6 +20,4 @@ function App() {
   );
 }
 
-
-
-export default App
+export default App;
