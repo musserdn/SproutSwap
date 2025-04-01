@@ -48,3 +48,66 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+body {
+	background-color: #f5f5dc; /* Cream background */
+	text-align: center; /* Center everything */
+	font-family: 'Arial', sans-serif; /* Or choose a nicer font */
+  }
+  
+  h1 {
+	font-size: 3rem; /* Make the h1 larger */
+	font-weight: bold; /* Make the text bold */
+	color: black; /* Black color for text */
+	font-family: 'Georgia', serif; /* Nice font (you can change this to any font you prefer) */
+  }
+  
+  header {
+	text-align: center; /* Ensure header is centered */
+	margin: 20px 0; /* Add some spacing */
+  }
+  
+  /* Additional styling for center alignment (if needed for specific elements) */
+  .home-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+  }
+
+  /* Navbar Styles */
+.navbar {
+	background-color: #333; /* Dark background for navbar */
+	padding: 10px 0; /* Space around the navbar */
+	display: flex;
+	justify-content: center; /* Center the navbar */
+  }
+  
+  .navbar-list {
+	list-style: none; /* Remove bullet points */
+	display: flex; /* Arrange the items horizontally */
+	margin: 0;
+	padding: 0;
+  }
+  
+  .navbar-list li {
+	margin: 0 15px; /* Space between items */
+  }
+  
+  .navbar-link {
+	color: white; /* White text color */
+	text-decoration: none; /* Remove underline */
+	font-size: 1.2rem; /* Set font size */
+	font-weight: bold; /* Make text bold */
+	transition: color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .navbar-link:hover {
+	color: #f5f5dc; /* Light cream color on hover */
+  }
+  
+  .navbar-link:focus {
+	outline: none; /* Remove the outline on focus */
+  }
+  
