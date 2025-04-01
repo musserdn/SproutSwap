@@ -1,10 +1,7 @@
-/* contains global styles, such as a CSS reset and general layout or style rules that apply to the whole application. */
+/* Import a bubbly sans-serif print font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/* Global styles */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,89 +22,98 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 body {
-	background-color: #f5f5dc; /* Cream background */
+	background-color: #fbebd4;
 	text-align: center; /* Center everything */
-	font-family: 'Arial', sans-serif; /* Or choose a nicer font */
-  }
-  
-  h1 {
+	font-family: 'Quicksand', sans-serif; 
+}
+
+h1 {
 	font-size: 3rem; /* Make the h1 larger */
 	font-weight: bold; /* Make the text bold */
 	color: black; /* Black color for text */
-	font-family: 'Georgia', serif; /* Nice font (you can change this to any font you prefer) */
-  }
-  
-  header {
+}
+
+.tagline {
+	color: green;
+}
+
+header {
 	text-align: center; /* Ensure header is centered */
 	margin: 20px 0; /* Add some spacing */
-  }
-  
-  /* Additional styling for center alignment (if needed for specific elements) */
-  .home-container {
+}
+
+/* Additional styling for center alignment */
+.home-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-  }
+}
 
-  /* Navbar Styles */
+/* Navbar Styles */
 .navbar {
-	background-color: #333; /* Dark background for navbar */
+	position: relative;
+	background-color: #53351d; /* Dark background for navbar */
 	padding: 10px 0; /* Space around the navbar */
 	display: flex;
 	justify-content: center; /* Center the navbar */
-  }
-  
-  .navbar-list {
+}
+
+.navbar-list {
 	list-style: none; /* Remove bullet points */
 	display: flex; /* Arrange the items horizontally */
 	margin: 0;
 	padding: 0;
-  }
-  
-  .navbar-list li {
+}
+
+.navbar-list li {
 	margin: 0 15px; /* Space between items */
-  }
-  
-  .navbar-link {
+}
+
+.navbar-link {
 	color: white; /* White text color */
 	text-decoration: none; /* Remove underline */
 	font-size: 1.2rem; /* Set font size */
 	font-weight: bold; /* Make text bold */
 	transition: color 0.3s; /* Smooth transition for hover effect */
-  }
-  
-  .navbar-link:hover {
-	color: #f5f5dc; /* Light cream color on hover */
-  }
-  
-  .navbar-link:focus {
+}
+
+.navbar-link:hover {
+	color: #84b254; /* Green color on hover */
+}
+
+.navbar-link:focus {
 	outline: none; /* Remove the outline on focus */
-  }
-  
+}
