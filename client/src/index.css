@@ -117,3 +117,7 @@ header {
 .navbar-link:focus {
 	outline: none; /* Remove the outline on focus */
 }
+
+body {
+    cursor: url('/src/assets/leaf-cursor.png'), pointer;
+}
