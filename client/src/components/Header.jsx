@@ -1,8 +1,9 @@
 const Header = () => {
     return (
         <header className="header">
-            <div className="logo">
-                <h1>SproutSwap</h1> {/* Or use an image logo here */}
+            <div className="logo-container">
+                <img src="/src/assets/SproutSwapLogoNoWords.jpg" alt="SproutSwap Logo" className="logo" />
+                <h1>SproutSwap</h1>
             </div>
             <p className="tagline">Welcome to your garden!</p>
         </header>
@@ -10,4 +11,3 @@ const Header = () => {
 };
 
 export default Header;
-
