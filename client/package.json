@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "graphql": "^16.10.0",
     "jwt-decode": "^4.0.0",
     "react-router-dom": "^7.4.1"
