@@ -15,6 +15,20 @@ const server = new ApolloServer({
     resolvers
 });
 
+const PERENUAL_API_KEY = process.env.PERENUAL_API_KEY;
+const PERENUAL_BASE_URL = 'https://perenual.com/api/v2';
+
+const fetchFromPerenual = async (endpoint, params = {}) => {
+    const queryParams = new URLSearchParams({ key: PERENUAL_API_KEY, ...params });
+    const url = `${PERENUAL_BASE_URL}${endpoint}?${queryParams}`;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Perenual API error: ${response.statusText}`);
+    }
+    return response.json();
+};
+
 const startApolloServer = async () => {
     await server.start();
     await db();
@@ -29,6 +43,39 @@ const startApolloServer = async () => {
         context: authenticateToken
     }));
 
+    app.get('/api/species-list', async (req, res) => {
+        try {
+            const data = await fetchFromPerenual('/species-list', req.query);
+            res.json(data);
+        } catch (error) {
+            console.error('Error fetching species list:', error);
+            res.status(500).json({ error: 'Failed to fetch species list' });
+        }
+    });
+
+    app.get('/api/species/details/:id', async (req, res) => {
+        const { id } = req.params; // Extract the plant ID from the path parameter
+        try {
+            const data = await fetchFromPerenual(`/species/details/${id}`);
+            res.json(data);
+        } catch (error) {
+            console.error('Error fetching plant details:', error);
+            res.status(500).json({ error: 'Failed to fetch plant details' });
+        }
+    });
+
+    // REST API route for plant care guides
+    app.get('/api/species-care-guide-list', async (req, res) => {
+        try {
+            // Use the fetchFromPerenual helper to make the API request
+            const data = await fetchFromPerenual('/species-care-guide-list', req.query);
+            res.json(data); // Return the data to the client
+        } catch (error) {
+            console.error('Error fetching plant care guides:', error);
+            res.status(500).json({ error: 'Failed to fetch plant care guides' });
+        }
+    });
+
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, '../../client/dist')));
 
@@ -38,7 +85,7 @@ const startApolloServer = async () => {
     }
 
     app.listen(PORT, () => {
-        console.log(`API server running on port ${PORT}!`);
+        console.log(`API server running at http://localhost:${PORT}/api/`);
         console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
     });
 };
