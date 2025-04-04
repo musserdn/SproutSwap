@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch, labelText }) {
+export default function SearchBar({ onSearch, placeholder }) {
   const [searchValue, setSearchValue] = useState("");
 
   function handleSearch(e) {
@@ -14,7 +14,7 @@ export default function SearchBar({ onSearch, labelText }) {
 
   return (
     <form style={styles} onSubmit={handleSearch}>
-        <input type="text" onChange={(e) => setSearchValue(e.target.value)} />{" "}
+        <input type="text" placeholder={placeholder} onChange={(e) => setSearchValue(e.target.value)} />{" "}
         <button>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
