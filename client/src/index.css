@@ -1,123 +1,212 @@
 /* Import a bubbly sans-serif print font */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap");
 
 /* Global styles */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* END OF CSS RESET */
+
+:root {
+  --hover-green: #84b254;
+  --bg-yellow: #fbebd4;
+  --bg-darkbrown: #53351d;
 }
 
 body {
-	background-color: #fbebd4;
-	text-align: center; /* Center everything */
-	font-family: 'Quicksand', sans-serif; 
+  background-color: var(--bg-yellow);
+  text-align: center; /* Center everything */
+  font-family: "Quicksand", sans-serif;
 }
 
 h1 {
-	font-size: 3rem; /* Make the h1 larger */
-	font-weight: bold; /* Make the text bold */
-	color: black; /* Black color for text */
+  font-size: 3rem; /* Make the h1 larger */
+  font-weight: bold; /* Make the text bold */
+  color: black; /* Black color for text */
 }
 
 .tagline {
-	color: green;
+  color: green;
 }
 
 header {
-	text-align: center; /* Ensure header is centered */
-	margin: 20px 0; /* Add some spacing */
+  text-align: center; /* Ensure header is centered */
+  margin: 20px 0; /* Add some spacing */
 }
 
 /* Additional styling for center alignment */
 .home-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* Navbar Styles */
 .navbar {
-	position: relative;
-	background-color: #53351d; /* Dark background for navbar */
-	padding: 10px 0; /* Space around the navbar */
-	display: flex;
-	justify-content: center; /* Center the navbar */
+  position: relative;
+  background-color: var(--bg-darkbrown); /* Dark background for navbar */
+  padding: 10px 0; /* Space around the navbar */
+  display: flex;
+  justify-content: center; /* Center the navbar */
 }
 
 .navbar-list {
-	list-style: none; /* Remove bullet points */
-	display: flex; /* Arrange the items horizontally */
-	margin: 0;
-	padding: 0;
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Arrange the items horizontally */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-list li {
-	margin: 0 15px; /* Space between items */
+  margin: 0 15px; /* Space between items */
 }
 
 .navbar-link {
-	color: white; /* White text color */
-	text-decoration: none; /* Remove underline */
-	font-size: 1.2rem; /* Set font size */
-	font-weight: bold; /* Make text bold */
-	transition: color 0.3s; /* Smooth transition for hover effect */
+  color: white; /* White text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.2rem; /* Set font size */
+  font-weight: bold; /* Make text bold */
+  transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
 .navbar-link:hover {
-	color: #84b254; /* Green color on hover */
+  color: var(--hover-green); /* Green color on hover */
 }
 
 .navbar-link:focus {
-	outline: none; /* Remove the outline on focus */
+  outline: none; /* Remove the outline on focus */
 }
 
 body {
-    cursor: url('/src/assets/leaf-cursor.png'), pointer;
+  cursor: url("/src/assets/leaf-cursor.png"), pointer;
 }
