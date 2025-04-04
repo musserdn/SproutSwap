@@ -1,9 +1,14 @@
-import React from 'react';
+import SearchBar from "../components/SearchBar";
 
 const SearchBlogs = () => {
+  async function searchBlogs(searchValue) {
+    //TODO call backend API to get blog posts based on the search value
+  }
+
   return (
     <div>
-      {/* SearchBlogs component */}
+      {/* SearchBar component */}
+      <SearchBar onSearch={searchBlogs} />
     </div>
   );
 };
