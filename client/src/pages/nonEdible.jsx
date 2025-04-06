@@ -3,7 +3,7 @@ import SearchBar from '../components/SearchBar';
 import PlantList from '../components/PlantList';
 import { fetchSpeciesList } from '../utils/fetchPlants';
 
-const IndoorPlants = () => {
+const NonEdible = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const IndoorPlants = () => {
     setError(null);
 
     try {
-      const plants = await fetchSpeciesList({ q: searchTerm, indoor: null });
+      const plants = await fetchSpeciesList({ q: searchTerm, edible: 0 });
       setResults(plants);
     } catch (err) {
       setError(err.message);
@@ -24,7 +24,7 @@ const IndoorPlants = () => {
 
   return (
     <div>
-      <h1>Search for Indoor Plants</h1>
+      <h1>Search for Non-Edible Plants</h1>
       <SearchBar onSearch={handleSearch} placeholder="Search for a plant..." />
 
       {loading && <p>Loading...</p>}
@@ -35,4 +35,4 @@ const IndoorPlants = () => {
   );
 };
 
-export default IndoorPlants;
+export default NonEdible;
