@@ -8,7 +8,7 @@ const SearchBlogs = () => {
   return (
     <div>
       {/* SearchBar component */}
-      <SearchBar onSearch={searchBlogs} />
+      <SearchBar placeholder="Search blogs..." onSearch={searchBlogs} />
     </div>
   );
 };
