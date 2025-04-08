@@ -1,20 +1,20 @@
 /* TODO: remove anything that is going to be defined globally */
 
-label div h2 {
+.component label div h2 {
   font-size: 2rem;
   margin: 1rem auto;
 }
 
-input {
+.component input {
   padding: 0.5rem;
   height: 1rem;
 }
 
-form label div {
+.component form label div {
   color: green;
 }
 
-form button {
+.component form button {
   width: 2.3rem;
   height: 2.2rem;
   background-color: inherit;
