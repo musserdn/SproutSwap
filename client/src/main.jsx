@@ -6,6 +6,7 @@ import App from './App.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
+import Logout from './pages/Logout.jsx';
 import BlogCilantro from './pages/BlogCilantro.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
 import FriendsResults from './pages/FriendsResults.jsx';
@@ -65,17 +66,21 @@ const router = createBrowserRouter([
         element: <Rose1 />,
       },
       {
-        path: 'SearchBlogs',
+        path: 'searchblogs',
         element: <SearchBlogs />,
       },
       {
-        path: 'SearchFriends',
+        path: 'searchfriends',
         element: <SearchFriends />,
       },
       {
         path: 'UserProfile',
         element: <UserProfile />,
       },
+      {
+        path: 'logout',
+        element: <Logout />
+      }
     ],
   },
 ]);
