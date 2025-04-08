@@ -1,0 +1,25 @@
+name: Deploy
+
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    steps:
+    
+      # Define a step named "Deploy"
+      - name: Deploy
+        # Only run this step if the branch is main
+        if: github.ref == 'refs/heads/main'
+        # Set an environment variable with the deployment URL from secrets
+        env:
+          DEPLOY_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        # Run the deployment command
+        run: |
+          curl "$DEPLOY_URL"
