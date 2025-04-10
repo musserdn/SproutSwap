@@ -1,15 +1,34 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-import React, { useState } from 'react';
+import { css } from "@emotion/react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { setToken } from "../utils/auth";
+import { LOGIN_USER } from "../utils/mutations";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
+
+    try {
+      const {
+        data: {
+          login: { token },
+        },
+      } = await login({ variables: { email, password } });
+
+      setToken(token);
+      navigate('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // Emotion CSS for the button
@@ -38,12 +57,12 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -64,6 +83,8 @@ const Login = () => {
           Login
         </button>
       </form>
+
+      {error && <div>{error.message}</div>}
     </div>
   );
 };
