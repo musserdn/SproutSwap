@@ -11,7 +11,7 @@ import BlogCilantro from './pages/BlogCilantro.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
 import FriendsResults from './pages/FriendsResults.jsx';
 import SearchPlants from './pages/SearchPlants.jsx';
-import Rose1 from './pages/Rose1.jsx';
+import PlantDetails from './pages/PlantDetails.jsx';
 import SearchBlogs from './pages/SearchBlogs.jsx';
 import SearchFriends from './pages/SearchFriends.jsx';
 import UserProfile from './pages/UserProfile.jsx';
@@ -47,8 +47,8 @@ const router = createBrowserRouter([
         element: <SearchPlants />,
       },
       {
-        path: 'Rose1',
-        element: <Rose1 />,
+        path: 'PlantDetails',
+        element: <PlantDetails/>,
       },
       {
         path: 'searchblogs',
