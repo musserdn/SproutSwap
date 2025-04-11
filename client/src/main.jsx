@@ -10,11 +10,8 @@ import Logout from './pages/Logout.jsx';
 import BlogCilantro from './pages/BlogCilantro.jsx';
 import CreateAccount from './pages/CreateAccount.jsx';
 import FriendsResults from './pages/FriendsResults.jsx';
-import IndoorPlants from './pages/IndoorPlants.jsx';
-import NonEdible from './pages/nonEdible.jsx';
-import Edible from './pages/Edible.jsx';
-import OutdoorPlants from './pages/OutdoorPlants.jsx';
-import Rose1 from './pages/Rose1.jsx';
+import SearchPlants from './pages/SearchPlants.jsx';
+import PlantDetails from './pages/PlantDetails.jsx';
 import SearchBlogs from './pages/SearchBlogs.jsx';
 import SearchFriends from './pages/SearchFriends.jsx';
 import UserProfile from './pages/UserProfile.jsx';
@@ -46,24 +43,12 @@ const router = createBrowserRouter([
         element: <FriendsResults />,
       },
       {
-        path: 'IndoorPlants',
-        element: <IndoorPlants />,
+        path: 'SearchPlants',
+        element: <SearchPlants />,
       },
       {
-        path: 'NonEdible',
-        element: <NonEdible />,
-      },
-      {
-        path: 'Edible',
-        element: <Edible />,
-      },
-      {
-        path: 'OutdoorPlants',
-        element: <OutdoorPlants />,
-      },
-      {
-        path: 'Rose1',
-        element: <Rose1 />,
+        path: 'PlantDetails',
+        element: <PlantDetails/>,
       },
       {
         path: 'searchblogs',
