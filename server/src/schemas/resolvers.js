@@ -5,10 +5,10 @@ import { signToken, AuthenticationError } from '../utils/auth.js';
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find();
+            return User.find().select("-password -email").exec();
         },
         user: async (_parent, { username }) => {
-            return User.findOne({ username });
+            return User.findOne({ username }).select("-password -email").exec();
         },
 
         // Query to get the authenticated user's information
