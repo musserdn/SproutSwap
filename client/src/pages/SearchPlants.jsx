@@ -14,7 +14,7 @@ const SearchPlants = () => {
     setError(null);
 
     try {
-      const plants = await fetchSpeciesList({ q: searchTerm, edible: 1 });
+      const plants = await fetchSpeciesList({ q: searchTerm });
       setResults(plants);
     } catch (err) {
       setError(err.message);
