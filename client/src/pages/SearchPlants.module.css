@@ -1,0 +1,23 @@
+.container {
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  
+  .status {
+    font-size: 1.1rem;
+    margin: 16px 0;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .plantListWrapper {
+    margin-top: 32px;
+  }
