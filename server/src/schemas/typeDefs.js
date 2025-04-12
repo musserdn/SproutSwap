@@ -8,17 +8,6 @@ const typeDefs = `
     garden: Garden
   }
 
-  input UserInput {
-    username: String!
-    email: String!
-    password: String!
-  }
-  
-  type Auth {
-    token: ID!
-    user: User
-  }
-
   type Garden {
     _id: ID!
     user: User
@@ -32,16 +21,38 @@ const typeDefs = `
     imgUrl: String 
   }
 
+  input UserInput {
+    username: String!
+    email: String!
+    password: String!
+  }
+
+  input GardenInput {
+    userId: ID!
+    plantIds: [ID!]
+  }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
     me: User
     plant(plantId: ID!): Plant
+    garden(gardenId: ID!): Garden
+    gardens: [Garden]
   }
 
   type Mutation {
     addUser(input: UserInput!): Auth
     login(email: String!, password: String!): Auth
+
+    addGarden(input: GardenInput!): Garden
+    addPlantToGarden(gardenId: ID!, plantId: ID!): Garden
+    removePlantFromGarden(gardenId: ID!, plantId: ID!): Garden
   }
 `;
 

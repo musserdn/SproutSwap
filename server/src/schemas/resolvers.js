@@ -1,6 +1,5 @@
-import { User } from '../models/index.js';
+import { User, Garden, Plant } from '../models/index.js';
 import { signToken, AuthenticationError } from '../utils/auth.js';
-
 
 const resolvers = {
     Query: {
@@ -21,7 +20,18 @@ const resolvers = {
             // If the user is not authenticated, throw an AuthenticationError
             throw new AuthenticationError('Could not authenticate user.');
         },
+
+        // Get a specific garden by ID
+        garden: async (_parent, { gardenId }) => {
+            return Garden.findById(gardenId).populate('plants').populate('user');
+        },
+
+        // Get all gardens
+        gardens: async () => {
+            return Garden.find().populate('plants').populate('user');
+        }
     },
+
     Mutation: {
         addUser: async (_parent, { input }) => {
             // Create a new user with the provided username, email, and password
@@ -48,6 +58,41 @@ const resolvers = {
             const token = signToken(user.username, user.email, user._id);
             // Return the token and the user
             return { token, user };
+        },
+
+        // Create a new garden for a user
+        addGarden: async (_parent, { input }) => {
+            const { userId, plantIds } = input;
+
+            const garden = await Garden.create({
+                user: userId,
+                plants: plantIds || []
+            });
+
+            // Optionally update the user with this new garden reference
+            await User.findByIdAndUpdate(userId, { garden: garden._id });
+
+            return garden.populate('plants').populate('user');
+        },
+
+        // Add a plant to a garden
+        addPlantToGarden: async (_parent, { gardenId, plantId }) => {
+            const updatedGarden = await Garden.findByIdAndUpdate(
+                gardenId,
+                { $addToSet: { plants: plantId } },
+                { new: true }
+            ).populate('plants').populate('user');
+            return updatedGarden;
+        },
+
+        // Remove a plant from a garden
+        removePlantFromGarden: async (_parent, { gardenId, plantId }) => {
+            const updatedGarden = await Garden.findByIdAndUpdate(
+                gardenId,
+                { $pull: { plants: plantId } },
+                { new: true }
+            ).populate('plants').populate('user');
+            return updatedGarden;
         }
     }
 };
