@@ -1,2 +1,5 @@
 import User from './User.js';
-export { User };
+import Garden from './Garden.js';
+import Plant from './Plant.js';
+
+export { User, Garden, Plant };
