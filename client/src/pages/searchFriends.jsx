@@ -1,20 +1,22 @@
 import React from "react";
+import styles from "./SearchFriends.module.css";
 
 const FriendsSearch = () => {
   return (
-    <div className="friends-search">
-      <h2>Find Fellow Gardeners</h2>
-      <div className="search-bar">
+    <div className={styles.container}>
+      <h2 className={styles.title}>Find Fellow Gardeners</h2>
+
+      <div className={styles.searchBar}>
         <input type="text" placeholder="Search for gardeners..." />
         <button>Search</button>
       </div>
 
-      <div className="search-results">
+      <div className={styles.searchResults}>
         {/* Placeholder for search results */}
       </div>
 
       <h3>My Friends</h3>
-      <ul>
+      <ul className={styles.friendsList}>
         {/* Placeholder for the user's friends list */}
       </ul>
     </div>

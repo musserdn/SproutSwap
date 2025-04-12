@@ -207,6 +207,14 @@ header {
   outline: none; /* Remove the outline on focus */
 }
 
+/* Set the default cursor to leaf */
 body {
-  cursor: url("/src/assets/leaf-cursor.png"), pointer;
+  cursor: url("/src/assets/leaf-cursor.png"), pointer; /* Default cursor */
 }
+
+/* Apply carrot cursor on hover for specific elements like navbar and footer links */
+.navbar-link:hover,
+footer a:hover {
+  cursor: url("/src/assets/carrot-cursor.png"), pointer; /* Cursor on hover */
+}
+

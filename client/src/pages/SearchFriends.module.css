@@ -1,0 +1,46 @@
+.container {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  
+  .searchBar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .searchBar input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+  }
+  
+  .searchBar button {
+    padding: 10px 20px;
+    background-color: var(--hover-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .searchResults {
+    margin-top: 40px;
+  }
+  
+  .friendsList {
+    margin-top: 20px;
+  }
+  
