@@ -9,8 +9,8 @@ const Navbar = () => {
                 <li><a href="searchfriends" className="navbar-link">Friends</a></li>
                 <li><a href="searchplants" className="navbar-link">Search</a></li>
                 <li>
-                  <a href={`${isLoggedIn()? "logout": "login"}`} className="navbar-link">
-                    {isLoggedIn()? "Logout": "Login"}
+                  <a href={`${isLoggedIn() ? "logout" : "login"}`} className="navbar-link">
+                    {isLoggedIn() ? "Logout" : "Login"}
                   </a>
                 </li>
             </ul>
