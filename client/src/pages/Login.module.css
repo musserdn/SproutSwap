@@ -1,0 +1,30 @@
+.loginContainer {
+    max-width: 400px;
+    margin: 60px auto; /* Center on page with vertical space */
+    text-align: left;
+  }
+  
+  .loginContainer h2 {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  form > div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+  }
+  
