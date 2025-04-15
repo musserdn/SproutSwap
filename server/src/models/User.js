@@ -21,6 +21,14 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
     },
+    friends: {
+      type: [Schema.Types.ObjectId],
+      ref: 'User',
+    },
+    garden: {
+      type: Schema.Types.ObjectId,
+      ref: 'Garden'
+    }
 }, {
     timestamps: true,
     toJSON: { getters: true },
