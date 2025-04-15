@@ -21,9 +21,17 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
     },
+    friends: {
+      type: [Schema.Types.ObjectId],
+      ref: 'User',
+    },
+    garden: {
+      type: Schema.Types.ObjectId,
+      ref: 'Garden'
+    }
     avatar_url: {
-        type: String,
-        default: 'https://avatars.githubusercontent.com/u/82452125?v=4',
+      type: String,
+      default: 'https://avatars.githubusercontent.com/u/82452125?v=4',
     }
 }, {
     timestamps: true,
