@@ -6,6 +6,19 @@ const resolvers = {
         users: async () => {
             return User.find().select("-password -email").exec();
         },
+        searchUsers: async (parent, { username }) => {
+            try {
+                console.log("Searching for users with username:", username); // Debug log
+                const users = await User.find({
+                    username: { $regex: username, $options: 'i' }
+                });
+                console.log("Found users:", users); // Debug log
+                return users;
+            } catch (err) {
+                console.error("Error searching users:", err);
+                throw new Error("Failed to search users");
+            }
+        },
         user: async (_parent, { username }) => {
             return User.findOne({ username }).select("-password -email").exec();
         },
