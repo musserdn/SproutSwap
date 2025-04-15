@@ -4,6 +4,7 @@ const typeDefs = `
     username: String
     email: String
     password: String
+    avatar_url: String
     friends: [User]
     garden: Garden
   }
@@ -39,6 +40,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
+    searchUsers(username: String!): [User]
     user(username: String!): User
     me: User
     plant(plantId: ID!): Plant
