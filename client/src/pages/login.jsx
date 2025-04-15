@@ -1,3 +1,4 @@
+import styles from "./Login.module.css";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
@@ -11,7 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [login, { error }] = useMutation(LOGIN_USER);
-
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -31,17 +31,16 @@ const Login = () => {
     }
   };
 
-  // Emotion CSS for the button
   const buttonStyle = css`
-    background-color: green; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded corners */
-    padding: 10px 20px; /* Add padding */
-    font-size: 16px; /* Increase font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    min-width: 100px; /* Ensure the button has a minimum width */
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 100px;
 
     &:hover {
       background-color: #84b254;
@@ -53,7 +52,7 @@ const Login = () => {
   `;
 
   return (
-    <div className="login-container">
+    <div className={styles.loginContainer}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -78,7 +77,6 @@ const Login = () => {
           />
         </div>
 
-        {/* Apply the Emotion CSS to the button */}
         <button type="submit" css={buttonStyle}>
           Login
         </button>
