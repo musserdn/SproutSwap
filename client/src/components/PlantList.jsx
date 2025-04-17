@@ -38,6 +38,7 @@ const PlantList = ({ plants }) => {
             }}
           >
             <div
+              className="plant-card"
               style={{
                 border: "1px solid #ccc",
                 borderRadius: "8px",
@@ -68,7 +69,6 @@ const PlantList = ({ plants }) => {
                   border: "none",
                   borderRadius: "4px",
                   padding: "6px",
-                  cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

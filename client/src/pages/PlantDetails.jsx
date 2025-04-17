@@ -156,7 +156,6 @@ const PlantDetails = () => {
           padding: 10px 20px;
           border-radius: 5px;
           font-size: 16px;
-          cursor: pointer;
           margin-bottom: 20px;
           transition: background-color 0.3s;
 

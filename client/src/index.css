@@ -227,6 +227,10 @@ button:hover {
   cursor: url("/src/assets/carrot-cursor.png"), pointer;
 }
 
+.plant-card:hover {
+  cursor: url("/src/assets/carrot-cursor.png"), pointer;
+}
+
 
 
 
