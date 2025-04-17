@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PlantList = ({ plants }) => {
   const [addedPlants, setAddedPlants] = useState({});
@@ -28,53 +29,64 @@ const PlantList = ({ plants }) => {
         const isAdded = addedPlants[plant.id];
 
         return (
-          <div
+          <Link
             key={plant.id}
+            to={`/PlantDetails/${plant.id}`}
             style={{
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-              padding: "8px",
-              textAlign: "center",
-              width: "150px",
-              position: "relative",
+              textDecoration: "none",
+              color: "inherit",
             }}
           >
-            <img
-              src={
-                plant.default_image?.thumbnail ||
-                "https://dummyimage.com/150/53351d/008000&text=Image+Missing"
-              }
-              alt={plant.common_name || "Unknown Plant"}
-              style={{ width: "100%", borderRadius: "4px" }}
-            />
-            <p style={{ margin: "8px 0" }}>
-              {plant.common_name || "Unknown Plant"}
-            </p>
-            <button
-              onClick={() => handleToggle(plant.id)}
+            <div
               style={{
-                backgroundColor: isAdded ? "#ffdddd" : "#ddffdd",
-                border: "none",
-                borderRadius: "4px",
-                padding: "6px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                padding: "8px",
+                textAlign: "center",
+                width: "150px",
+                position: "relative",
               }}
             >
-              {isAdded ? (
-                <>
-                  <FaTrash style={{ marginRight: "6px" }} /> Remove
-                </>
-              ) : (
-                <>
-                  <FaPlus style={{ marginRight: "6px" }} /> Add
-                </>
-              )}
-            </button>
-          </div>
+              <img
+                src={
+                  plant.default_image?.thumbnail ||
+                  "https://dummyimage.com/150/53351d/008000&text=Image+Missing"
+                }
+                alt={plant.common_name || "Unknown Plant"}
+                style={{ width: "100%", borderRadius: "4px" }}
+              />
+              <p style={{ margin: "8px 0" }}>
+                {plant.common_name || "Unknown Plant"}
+              </p>
+              <button
+                onClick={(e) => {
+                  e.preventDefault(); // prevent link click
+                  handleToggle(plant.id);
+                }}
+                style={{
+                  backgroundColor: isAdded ? "#ffdddd" : "#ddffdd",
+                  border: "none",
+                  borderRadius: "4px",
+                  padding: "6px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                {isAdded ? (
+                  <>
+                    <FaTrash style={{ marginRight: "6px" }} /> Remove
+                  </>
+                ) : (
+                  <>
+                    <FaPlus style={{ marginRight: "6px" }} /> Add
+                  </>
+                )}
+              </button>
+            </div>
+          </Link>
         );
       })}
     </div>
