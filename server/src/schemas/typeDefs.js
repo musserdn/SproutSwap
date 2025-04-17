@@ -6,13 +6,7 @@ const typeDefs = `
     password: String
     avatar_url: String
     friends: [User]
-    garden: Garden
-  }
-
-  type Garden {
-    _id: ID!
-    user: User
-    plants: [Plant]
+    garden: [Plant]
   }
 
   type Plant {
@@ -28,11 +22,6 @@ const typeDefs = `
     password: String!
   }
 
-  input GardenInput {
-    userId: ID!
-    plantIds: [ID!]
-  }
-
   type Auth {
     token: ID!
     user: User
@@ -44,17 +33,13 @@ const typeDefs = `
     user(username: String!): User
     me: User
     plant(plantId: ID!): Plant
-    garden(gardenId: ID!): Garden
-    gardens: [Garden]
   }
 
   type Mutation {
     addUser(input: UserInput!): Auth
     login(email: String!, password: String!): Auth
 
-    addGarden(input: GardenInput!): Garden
-    addPlantToGarden(gardenId: ID!, plantId: ID!): Garden
-    removePlantFromGarden(gardenId: ID!, plantId: ID!): Garden
+    updateGarden(userId: ID!, plantIds: [ID!]): User
   }
 `;
 

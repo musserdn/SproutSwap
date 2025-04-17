@@ -4,14 +4,9 @@
  - Users collection
   + _id
   + friends: [...User._id]
-  + Garden._id
+  + garden: [...Plant._id]
   + blogposts: [...BlogPost._id] <!--stretch goal 1-->
   + tips: [...Tip._id] <!--stretch goal 2-->
-
- - Gardens collection
-  + _id
-  + User._id
-  + plants: [...Plant._id ]
 
  - Plants Collection
   + _id

@@ -11,10 +11,12 @@ export const ME = gql`
   }
 `;
 
-export const MY_GARDEN = gql``;
-
 export const ALL_USERS = gql``; // gets called first
 
 export const GET_USER = gql``; // uses data from ALL_USERS
 
-export const USER_GARDEN = gql``; // uses gardenId from GET_USER
+export const USER_GARDEN = gql`
+  
+`;
+
+// uses gardenId from GET_USER
