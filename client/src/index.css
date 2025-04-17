@@ -218,3 +218,19 @@ footer a:hover {
   cursor: url("/src/assets/carrot-cursor.png"), pointer; /* Cursor on hover */
 }
 
+footer a:hover,
+footer button:hover {
+  cursor: url("/src/assets/carrot-cursor.png"), pointer;
+}
+
+button:hover {
+  cursor: url("/src/assets/carrot-cursor.png"), pointer;
+}
+
+.plant-card:hover {
+  cursor: url("/src/assets/carrot-cursor.png"), pointer;
+}
+
+
+
+

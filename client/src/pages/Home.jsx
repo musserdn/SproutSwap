@@ -16,7 +16,6 @@ const Home = () => {
           padding: '10px 20px',
           borderRadius: '5px',
           fontSize: '16px',
-          cursor: 'pointer',
           marginBottom: '20px'
         }}
       >
