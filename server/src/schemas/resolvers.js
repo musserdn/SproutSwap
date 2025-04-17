@@ -73,6 +73,32 @@ const resolvers = {
             const updatedUser = await User.findByIdAndUpdate(userId, { garden: plantIds });
             return updatedUser;
         },
+
+        addFriend: async (_parent, { friendId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    context.user._id,
+                    { $addToSet: { friends: friendId } },
+                    { new: true }
+                ).populate('friends');
+                
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        
+        removeFriend: async (_parent, { friendId }, context) => {
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    context.user._id,
+                    { $pull: { friends: friendId } },
+                    { new: true }
+                ).populate('friends');
+                
+                return updatedUser;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
     }
 };
 

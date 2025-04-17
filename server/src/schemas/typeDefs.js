@@ -38,8 +38,9 @@ const typeDefs = `
   type Mutation {
     addUser(input: UserInput!): Auth
     login(email: String!, password: String!): Auth
-
-    updateGarden(userId: ID!, plantIds: [ID!]): User
+    updateGarden(userId: ID!, plantIds: [ID!]): User 
+    addFriend(friendId: ID!): User
+    removeFriend(friendId: ID!): User
   }
 `;
 
