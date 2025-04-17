@@ -24,10 +24,12 @@ const userSchema = new Schema({
     friends: {
       type: [Schema.Types.ObjectId],
       ref: 'User',
+      default: []
     },
     garden: {
-      type: Schema.Types.ObjectId,
-      ref: 'Garden'
+      type: [Schema.Types.ObjectId],
+      ref: 'Plant',
+      default: []
     },
     avatar_url: {
       type: String,
