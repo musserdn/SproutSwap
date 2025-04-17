@@ -1,15 +1,36 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import { useState } from 'react';
+import styles from './Footer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faLeaf,
     faSeedling,
     faTree,
-    faCarrot
+    faCarrot,
+    faSunPlantWilt
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithubAlt } from '@fortawesome/free-brands-svg-icons';
+import confetti from 'canvas-confetti';
 
 const Footer = () => {
+    // Track if confetti has been triggered
+    const [confettiTriggered, setConfettiTriggered] = useState(false);
+
+    // Function to trigger confetti explosion
+    const triggerConfetti = () => {
+        setConfettiTriggered(true);
+        
+        // Create confetti explosion
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.8 },
+            colors: ['#84b254', '#2c3e50', '#f39c12', '#3498db', '#e74c3c']
+        });
+        
+        // Reset the state after a short delay
+        setTimeout(() => setConfettiTriggered(false), 1000);
+    };
+
     // Team members data with Font Awesome icons
     const teamMembers = [
         {
@@ -32,105 +53,18 @@ const Footer = () => {
             icon: <FontAwesomeIcon icon={faLeaf} />,
             github: 'https://github.com/kerriamber'
         },
+        {
+            icon: <FontAwesomeIcon icon={faSunPlantWilt} className={confettiTriggered ? styles.spinning : ''} />,
+            onClick: triggerConfetti,
+            isButton: true
+        }
     ];
 
-    // Simplified CSS
-    const footerStyle = css`
-        background-color: #2c3e50;
-        color: white;
-        padding: 1rem 0;
-        border-top: 3px solid #84b254;
-    `;
-
-    const containerStyle = css`
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        text-align: center;
-    `;
-
-    const footerContentStyle = css`
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        
-        @media (min-width: 768px) {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-        }
-    `;
-
-    const logoStyle = css`
-        h3 {
-            color: #84b254;
-            margin-bottom: 0.5rem;
-        }
-        
-        p {
-            margin-bottom: 0.5rem;
-        }
-    `;
-
-    const teamGridStyle = css`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    `;
-
-    const teamMemberStyle = css`
-        text-align: center;
-        
-        .icon {
-            background-color: rgba(132, 178, 84, 0.2);
-            color: #84b254;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.5rem;
-        }
-        
-        a {
-            color: white;
-            text-decoration: none;
-            
-            &:hover {
-                color: #84b254;
-            }
-        }
-    `;
-
-    const githubButtonStyle = css`
-        display: inline-flex;
-        align-items: center;
-        background-color: #84b254;
-        color: white;
-        padding: 0.4rem 0.75rem;
-        border-radius: 4px;
-        text-decoration: none;
-        margin-top: 0.5rem;
-        
-        &:hover {
-            background-color: #6b9242;
-        }
-    `;
-
-    const copyrightStyle = css`
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 0.8rem;
-    `;
-
     return (
-        <footer css={footerStyle}>
-            <div css={containerStyle}>
-                <div css={footerContentStyle}>
-                    <div css={logoStyle}>
+        <footer className={styles.footer}>
+            <div className={styles.container}>
+                <div className={styles.footerContent}>
+                    <div className={styles.logo}>
                         <h3>SproutSwap</h3>
                         <p>A community platform for plant enthusiasts</p>
                         <p>to share knowledge and trade plants.</p>
@@ -138,35 +72,47 @@ const Footer = () => {
                             href="https://github.com/musserdn/SproutSwap"
                             target="_blank"
                             rel="noopener noreferrer"
-                            css={githubButtonStyle}
+                            className={styles.githubButton}
                         >
                             <FontAwesomeIcon icon={faGithubAlt} style={{ marginRight: '0.4rem' }} /> GitHub
                         </a>
                     </div>
 
                     <div>
-                        <h4 style={{ color: '#84b254', marginBottom: '0.5rem' }}>Our Team</h4>
-                        <div css={teamGridStyle}>
+                        <h4 className={styles.teamTitle}>Our Team</h4>
+                        <div className={styles.teamGrid}>
                             {teamMembers.map((member, index) => (
-                                <div key={index} css={teamMemberStyle}>
-                                    <a
-                                        href={member.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <div className="icon">
-                                            {member.icon}
-                                        </div>
-                                        {member.name}
-                                    </a>
+                                <div key={index} className={styles.teamMember}>
+                                    {member.isButton ? (
+                                        <button 
+                                            onClick={member.onClick}
+                                            className={styles.confettiButton}
+                                        >
+                                            <div className={styles.icon}>
+                                                {member.icon}
+                                            </div>
+                                            {member.name}
+                                        </button>
+                                    ) : (
+                                        <a
+                                            href={member.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <div className={styles.icon}>
+                                                {member.icon}
+                                            </div>
+                                            {member.name}
+                                        </a>
+                                    )}
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <div css={copyrightStyle}>
-                    <p>© {new Date().getFullYear()} SproutSwap. All rights reserved. Made with <FontAwesomeIcon icon={faLeaf} style={{ color: '#84b254' }} /> by plant lovers, for plant lovers</p>
+                <div className={styles.copyright}>
+                    <p>© {new Date().getFullYear()} SproutSwap. All rights reserved. Made with <FontAwesomeIcon icon={faLeaf} className={styles.leafIcon} /> by plant lovers, for plant lovers</p>
                 </div>
             </div>
         </footer>
