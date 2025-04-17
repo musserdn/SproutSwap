@@ -1,21 +1,9 @@
 import React, { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
 import styles from "./SearchFriends.module.css";
 import SearchBar from "../components/SearchBar";
 import FriendCard from "../components/FriendCard";
-
-// GraphQL query to search users by username
-const SEARCH_USERS = gql`
-  query SearchUsers($username: String!) {
-    searchUsers(username: $username) {
-      _id
-      username
-      avatar_url
-      email
-    }
-  }
-`;
+import { SEARCH_USERS } from "../utils/queries";
 
 const FriendsSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
