@@ -166,9 +166,9 @@ header {
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  padding-top: 40px; /* Add space from top */
+  gap: 20px; /* Add space between h1 and button */
 }
 
 /* Navbar Styles */
