@@ -1,17 +1,22 @@
 import { gql } from "@apollo/client";
 
-export const USER = gql`
+// 'my garden'
+export const ME = gql`
+  Query Me {
+    me {
+      garden
+      email
+      friends
+    }
+  }
+`;
+
+export const ALL_USERS = gql``; // gets called first
+
+export const GET_USER = gql``; // uses data from ALL_USERS
+
+export const USER_GARDEN = gql`
   
 `;
 
-export const GARDEN = gql`
-  
-`;
-
-export const GARDENS = gql`
-  
-`;
-
-// export const  = gql`
-  
-// `;
+// uses gardenId from GET_USER

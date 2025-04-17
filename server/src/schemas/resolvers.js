@@ -1,10 +1,23 @@
-import { User, Garden, Plant } from '../models/index.js';
+import { User } from '../models/index.js';
 import { signToken, AuthenticationError } from '../utils/auth.js';
 
 const resolvers = {
     Query: {
         users: async () => {
             return User.find().select("-password -email").exec();
+        },
+        searchUsers: async (parent, { username }) => {
+            try {
+                console.log("Searching for users with username:", username); // Debug log
+                const users = await User.find({
+                    username: { $regex: username, $options: 'i' }
+                });
+                console.log("Found users:", users); // Debug log
+                return users;
+            } catch (err) {
+                console.error("Error searching users:", err);
+                throw new Error("Failed to search users");
+            }
         },
         user: async (_parent, { username }) => {
             return User.findOne({ username }).select("-password -email").exec();
@@ -20,22 +33,14 @@ const resolvers = {
             // If the user is not authenticated, throw an AuthenticationError
             throw new AuthenticationError('Could not authenticate user.');
         },
-
-        // Get a specific garden by ID
-        garden: async (_parent, { gardenId }) => {
-            return Garden.findById(gardenId).populate('plants').populate('user');
-        },
-
-        // Get all gardens
-        gardens: async () => {
-            return Garden.find().populate('plants').populate('user');
-        }
     },
 
     Mutation: {
         addUser: async (_parent, { input }) => {
             // Create a new user with the provided username, email, and password
             const user = await User.create({ ...input });
+            const garden = await Garden.create({userId: user._id});
+            user.findByIdAndUpdate(userId, { garden })
             // Sign a token with the user's information
             const token = signToken(user.username, user.email, user._id);
             // Return the token and the user
@@ -61,39 +66,13 @@ const resolvers = {
         },
 
         // Create a new garden for a user
-        addGarden: async (_parent, { input }) => {
+        updateGarden: async (_parent, { input }) => {
             const { userId, plantIds } = input;
 
-            const garden = await Garden.create({
-                user: userId,
-                plants: plantIds || []
-            });
-
             // Optionally update the user with this new garden reference
-            await User.findByIdAndUpdate(userId, { garden: garden._id });
-
-            return garden.populate('plants').populate('user');
+            const updatedUser = await User.findByIdAndUpdate(userId, { garden: plantIds });
+            return updatedUser;
         },
-
-        // Add a plant to a garden
-        addPlantToGarden: async (_parent, { gardenId, plantId }) => {
-            const updatedGarden = await Garden.findByIdAndUpdate(
-                gardenId,
-                { $addToSet: { plants: plantId } },
-                { new: true }
-            ).populate('plants').populate('user');
-            return updatedGarden;
-        },
-
-        // Remove a plant from a garden
-        removePlantFromGarden: async (_parent, { gardenId, plantId }) => {
-            const updatedGarden = await Garden.findByIdAndUpdate(
-                gardenId,
-                { $pull: { plants: plantId } },
-                { new: true }
-            ).populate('plants').populate('user');
-            return updatedGarden;
-        }
     }
 };
 
