@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Outlet, useLocation } from "react-router-dom"; // Import useLocation
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,14 +12,14 @@ import {
 import { getAuthHeaders } from "./utils/auth";
 import { setContext } from "@apollo/client/link/context";
 import { css } from "@emotion/react";
+import React, { useState } from "react";
+import PlantContext from "./context/PlantContext";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
-// Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
-  // return the headers to the context so httpLink can read them
   const authHeaders = getAuthHeaders();
   return {
     headers: {
@@ -30,30 +30,39 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
 function App() {
-  const location = useLocation(); // Get the current route
-  const hideNavbarRoutes = ["/login", "/create-account"]; // Define routes where the navbar should be hidden
+  const location = useLocation();
+  const hideNavbarRoutes = ["/login", "/create-account"];
 
   const mainStyle = css`
     min-height: 50vh;
   `;
 
+  // Add shared state for addedPlants
+  const [addedPlants, setAddedPlants] = useState({});
+
+  // Toggle function to update addedPlants
+  const handleToggle = (plantId) => {
+    setAddedPlants((prev) => ({
+      ...prev,
+      [plantId]: !prev[plantId],
+    }));
+  };
+
   return (
     <ApolloProvider client={client}>
-      <Header />
-      {/* Only show Navbar if the current path is NOT in the hideNavbarRoutes array */}
-      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
-
-      <main css={mainStyle}>
-        <Outlet />
-      </main>
-
-      <Footer />
+      <PlantContext.Provider value={{ addedPlants, handleToggle }}>
+        <Header />
+        {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+        <main css={mainStyle}>
+          <Outlet />
+        </main>
+        <Footer />
+      </PlantContext.Provider>
     </ApolloProvider>
   );
 }

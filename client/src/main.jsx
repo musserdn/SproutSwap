@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <SearchPlants />,
       },
       {
-        path: 'PlantDetails',
+        path: 'PlantDetails/:plantId',
         element: <PlantDetails/>,
       },
       {
