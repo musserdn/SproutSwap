@@ -1,22 +1,62 @@
 import { gql } from "@apollo/client";
 
-// 'my garden'
+// Get authenticated user with all fields
 export const ME = gql`
-  Query Me {
+  query Me {
     me {
-      garden
+      _id
+      username
       email
-      friends
+      avatar_url
+      friends {
+        _id
+        username
+        avatar_url
+      }
+      garden {
+        _id
+        name
+        plantApiId
+        imgUrl
+      }
     }
   }
 `;
 
-export const ALL_USERS = gql``; // gets called first
+// Get all users (basic info)
+export const ALL_USERS = gql`
+  query AllUsers {
+    users {
+      _id
+      username
+      avatar_url
+    }
+  }
+`;
 
-export const GET_USER = gql``; // uses data from ALL_USERS
+// Get detailed info for specific user
+export const GET_USER = gql`
+  query GetUser($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      avatar_url
+      friends {
+        _id
+        username
+        avatar_url
+      }
+      garden {
+        _id
+        name
+        plantApiId
+        imgUrl
+      }
+    }
+  }
+`;
 
-export const USER_GARDEN = gql``; // uses gardenId from GET_USER
-
+// Search users by username
 export const SEARCH_USERS = gql`
   query SearchUsers($username: String!) {
     searchUsers(username: $username) {
@@ -27,8 +67,19 @@ export const SEARCH_USERS = gql`
     }
   }
 `;
-export const USER_GARDEN = gql`
-  
-`;
 
-// uses gardenId from GET_USER
+// Since garden is now embedded in User, this query gets a user's garden
+export const USER_GARDEN = gql`
+  query UserGarden($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      garden {
+        _id
+        name
+        plantApiId
+        imgUrl
+      }
+    }
+  }
+`;

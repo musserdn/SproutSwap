@@ -9,6 +9,12 @@ export const LOGIN_USER = gql`
         username
         email
         avatar_url
+        garden {
+          _id
+          name
+          plantApiId
+          imgUrl
+        }
       }
     }
   }
@@ -73,6 +79,21 @@ export const REMOVE_PLANT_FROM_GARDEN = gql`
         username
       }
       plants {
+        _id
+        name
+        plantApiId
+        imgUrl
+      }
+    }
+  }
+`;
+
+export const UPDATE_GARDEN = gql`
+  mutation updateGarden($userId: ID!, $plantIds: [ID!]) {
+    updateGarden(userId: $userId, plantIds: $plantIds) {
+      _id
+      username
+      garden {
         _id
         name
         plantApiId
