@@ -28,7 +28,7 @@ const resolvers = {
     me: async (_parent, _args, context) => {
       // If the user is authenticated, find and return the user's information
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id }).populate('garden');
       }
       // If the user is not authenticated, throw an AuthenticationError
       throw new AuthenticationError("Could not authenticate user.");
@@ -66,22 +66,28 @@ const resolvers = {
     },
 
     // Create a new garden for a user
-    updateGarden: async (_parent, { input }) => {
-      const { userId, plants } = input;
+    updateGarden: async (_parent, { userId, plants }) => {
+      const updatedGarden = [];
 
-      // for each plant, create the plant in the database if it doesn't exist already:
-      plants.forEach(async (plant) => {
-        await Plant.findOneAndUpdate(
-          { plantApiId },
-          { plant },
-          { upsert: true }
+      // for each plant, update the plant and
+      // create the plant in the database if it doesn't exist already:
+      for (const plant of plants) {
+        const newPlant = await Plant.findOneAndUpdate(
+          { plantApiId: plant.plantApiId },
+          { ...plant },
+          { upsert: true, new: true }
         );
-      });
+
+        // add the created plant to the update
+        // list for the User document:
+        updatedGarden.push(newPlant);
+      }
 
       // Optionally update the user with this new garden reference
       const updatedUser = await User.findByIdAndUpdate(userId, {
-        garden: plantIds,
+        garden: updatedGarden, // note that mongoose only adds the ObjectIds
       });
+
       return updatedUser;
     },
 
