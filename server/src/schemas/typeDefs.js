@@ -10,6 +10,7 @@ const typeDefs = `
   }
 
   type Plant {
+    _id: ID!
     plantApiId: String
     name: String
     imgUrl: String 
