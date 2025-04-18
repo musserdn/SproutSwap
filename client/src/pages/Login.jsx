@@ -1,6 +1,4 @@
 import styles from "./Login.module.css";
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -31,31 +29,11 @@ const Login = () => {
     }
   };
 
-  const buttonStyle = css`
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 100px;
-
-    &:hover {
-      background-color: #84b254;
-    }
-
-    &:active {
-      background-color: #53351d;
-    }
-  `;
-
   return (
-    <div className={styles.loginContainer}>
+    <div className={`${styles.loginContainer} container-sm`}>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className={styles.loginForm}>
+        <div className={styles.formGroup}>
           <label htmlFor="email">Email:</label>
           <input
             type="text"
@@ -63,10 +41,11 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className={styles.formInput}
           />
         </div>
 
-        <div>
+        <div className={styles.formGroup}>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -74,15 +53,16 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className={styles.formInput}
           />
         </div>
 
-        <button type="submit" css={buttonStyle}>
+        <button type="submit" className="btn btn-primary btn-full">
           Login
         </button>
       </form>
 
-      {error && <div>{error.message}</div>}
+      {error && <div className="error-message">{error.message}</div>}
     </div>
   );
 };
