@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const PlantList = ({ plants }) => {
+const PlantList = ({ plants, isSearch=true }) => {
   const [addedPlants, setAddedPlants] = useState({});
 
   const handleToggle = (plantId) => {
@@ -13,7 +13,11 @@ const PlantList = ({ plants }) => {
   };
 
   if (!plants || plants.length === 0) {
-    return <p>No plants found. Try a different search term.</p>;
+    if (isSearch) {
+      return <p>No plants found. Try a different search term.</p>;
+    } else {
+      return <p>Your garden is empty. Add some plants!</p>;
+    }
   }
 
   return (
