@@ -9,8 +9,6 @@ const PlantList = ({ plants }) => {
   const [addedPlants, setAddedPlants] = useState({});
   const [updateGarden, { error }] = useMutation(UPDATE_GARDEN);
 
-  useEffect(()=>console.log(addedPlants), [addedPlants])
-
   const queryResponse = useQuery(ME);
 
   const handleToggle = async (plantId) => {
@@ -21,11 +19,18 @@ const PlantList = ({ plants }) => {
     }));
 
     // update the database:
+    
+    // find each plant in plants that matches a key in addedPlants
+    const plantKeys = Object.keys(addedPlants);
+    const garden = plantKeys.map(id => {
+      return plants.find(plant => Number(plant.id) === Number(id))
+    })
+    
     try {
       await updateGarden({
         variables: { 
           userId: queryResponse.data.me._id, 
-          plants: Object.values(addedPlants) 
+          plants: garden
         },
       });
     } catch (err) {
