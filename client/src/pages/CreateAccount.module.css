@@ -1,0 +1,23 @@
+.createAccountContainer {
+  margin: var(--space-xxl) auto; 
+  text-align: left;
+  max-width: 250px;
+}
+
+.accountForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: var(--space-md);
+  width: 100%;
+}
+
+.formInput {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+}

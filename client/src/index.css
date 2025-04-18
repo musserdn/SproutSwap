@@ -1,139 +1,57 @@
-/* Import a bubbly sans-serif print font */
+/* Import CSS files with corrected paths */
+@import './CSS/reset.css';
+@import './CSS/variables.css';
+@import './CSS/utilities.css';
+@import './App.css';
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap");
 
-/* Global styles */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+:root {
+  /* Color Palette */
+  --color-primary: #84b254;
+  --color-primary-dark: #6b9242;
+  --color-primary-light: rgba(132, 178, 84, 0.2);
+  
+  --color-secondary: #2c3e50;
+  --color-secondary-light: #34495e;
+  
+  --color-accent: #f39c12;
+  --color-accent-light: rgba(243, 156, 18, 0.2);
+  
+  --color-text-white: #ffffff;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xxl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-circle: 50%;
+  
+  /* Container Widths */
+  --container-xl: 1200px;
+  
+  /* Transitions */
+  --transition-default: 0.3s ease;
+  --transition-medium: 0.3s ease;
 
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
+  /* Font Sizes */
+  --font-size-hero: 3rem;
+  --font-size-title: 2rem;
+  --font-size-xxl: 1.5rem;
+  --font-size-lg: 1.2rem;
 
-body {
-  line-height: 1;
-}
+  /* Font Family */
+  --font-family: "Quicksand", sans-serif;
 
-ol,
-ul {
-  list-style: none;
-}
+  /* Background Colors */
+  --color-background: #fbebd4;
+  --color-background-dark: #53351d;
 
-blockquote,
-q {
-  quotes: none;
+  --color-text: black;
 }
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* END OF CSS RESET */
 
 :root {
   --hover-green: #84b254;
@@ -141,92 +59,102 @@ table {
   --bg-darkbrown: #53351d;
 }
 
-body {
-  background-color: var(--bg-yellow);
-  text-align: center; /* Center everything */
-  font-family: "Quicksand", sans-serif;
+/* Common animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
+/* Base styles using variables */
+body {
+  background-color: var(--color-background);
+  text-align: center;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  /* Default cursor */
+  cursor: url("/src/assets/leaf-cursor.png"), pointer;
+}
+
+/* Typography base styles */
 h1 {
-  font-size: 3rem; /* Make the h1 larger */
-  font-weight: bold; /* Make the text bold */
-  color: black; /* Black color for text */
+  font-size: var(--font-size-hero);
+  font-weight: bold;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: var(--font-size-title);
+  font-weight: bold;
+  margin-bottom: var(--space-md);
+  color: var(--bg-darkbrown);
+  text-align: center;
+}
+
+h3 {
+  font-size: var(--font-size-xxl);
+  margin-bottom: var(--space-sm);
 }
 
 .tagline {
-  color: green;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
 }
 
 header {
-  text-align: center; /* Ensure header is centered */
-  margin: 20px 0; /* Add some spacing */
+  text-align: center;
+  margin: var(--space-lg) 0;
 }
 
-/* Additional styling for center alignment */
+/* Home page specific layout */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px; /* Add space from top */
-  gap: 20px; /* Add space between h1 and button */
+  padding-top: var(--space-xxl);
+  gap: var(--space-lg);
 }
 
 /* Navbar Styles */
 .navbar {
   position: relative;
-  background-color: var(--bg-darkbrown); /* Dark background for navbar */
-  padding: 10px 0; /* Space around the navbar */
+  background-color: var(--color-background-dark);
+  padding: var(--space-sm) 0;
   display: flex;
-  justify-content: center; /* Center the navbar */
+  justify-content: center;
 }
 
 .navbar-list {
-  list-style: none; /* Remove bullet points */
-  display: flex; /* Arrange the items horizontally */
+  display: flex;
   margin: 0;
   padding: 0;
 }
 
 .navbar-list li {
-  margin: 0 15px; /* Space between items */
+  margin: 0 var(--space-md);
 }
 
 .navbar-link {
-  color: white; /* White text color */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.2rem; /* Set font size */
-  font-weight: bold; /* Make text bold */
-  transition: color 0.3s; /* Smooth transition for hover effect */
+  color: var(--color-text-white);
+  text-decoration: none;
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  transition: color var(--transition-medium);
 }
 
 .navbar-link:hover {
-  color: var(--hover-green); /* Green color on hover */
+  color: var(--color-primary);
 }
 
 .navbar-link:focus {
-  outline: none; /* Remove the outline on focus */
+  outline: none;
 }
 
-/* Set the default cursor to leaf */
-body {
-  cursor: url("/src/assets/leaf-cursor.png"), pointer; /* Default cursor */
-}
-
-/* Apply carrot cursor on hover for specific elements like navbar and footer links */
+/* Cursor styles */
 .navbar-link:hover,
-footer a:hover {
-  cursor: url("/src/assets/carrot-cursor.png"), pointer; /* Cursor on hover */
-}
-
 footer a:hover,
-footer button:hover {
-  cursor: url("/src/assets/carrot-cursor.png"), pointer;
-}
-
-button:hover {
-  cursor: url("/src/assets/carrot-cursor.png"), pointer;
-}
-
+footer button:hover,
+button:hover,
 .plant-card:hover {
   cursor: url("/src/assets/carrot-cursor.png"), pointer;
 }
