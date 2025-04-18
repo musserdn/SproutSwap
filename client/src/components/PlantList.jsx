@@ -1,15 +1,36 @@
 import React, { useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { UPDATE_GARDEN } from "../utils/mutations";
+import { ME } from "../utils/queries";
+import { useMutation, useQuery } from "@apollo/client";
 
 const PlantList = ({ plants }) => {
   const [addedPlants, setAddedPlants] = useState({});
+  const [updateGarden, { error }] = useMutation(UPDATE_GARDEN);
 
-  const handleToggle = (plantId) => {
+  useEffect(()=>console.log(addedPlants), [addedPlants])
+
+  const queryResponse = useQuery(ME);
+
+  const handleToggle = async (plantId) => {
+    // update the ui:
     setAddedPlants((prev) => ({
       ...prev,
       [plantId]: !prev[plantId],
     }));
+
+    // update the database:
+    try {
+      await updateGarden({
+        variables: { 
+          userId: queryResponse.data.me._id, 
+          plants: Object.values(addedPlants) 
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   if (!plants || plants.length === 0) {

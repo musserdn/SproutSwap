@@ -89,12 +89,11 @@ export const REMOVE_PLANT_FROM_GARDEN = gql`
 `;
 
 export const UPDATE_GARDEN = gql`
-  mutation updateGarden($userId: ID!, $plantIds: [ID!]) {
-    updateGarden(userId: $userId, plantIds: $plantIds) {
+  mutation updateGarden($userId: ID!, $plants: [Plant]) {
+    updateGarden(userId: $userId, plants: $plants) {
       _id
       username
       garden {
-        _id
         name
         plantApiId
         imgUrl

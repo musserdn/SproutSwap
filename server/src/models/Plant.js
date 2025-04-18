@@ -7,6 +7,8 @@ const plantSchema = new Schema(
     plantApiId: {
       type: String,
       required: true, // Ensure this field is required
+      unique: true,
+      required: true
     },
     // The name of the plant
     name: {
@@ -22,6 +24,7 @@ const plantSchema = new Schema(
   {
     // Options to add timestamps (createdAt, updatedAt) to documents
     timestamps: true,
+    _id: false
   }
 );
 
