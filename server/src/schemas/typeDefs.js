@@ -17,7 +17,7 @@ const typeDefs = `
   }
 
   input PlantInput {
-    plantApiId: String
+    plantApiId: Int
     name: String
     imgUrl: String 
   }
