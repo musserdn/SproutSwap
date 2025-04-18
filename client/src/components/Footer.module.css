@@ -6,9 +6,9 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-xl);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 var(--space-md);
   text-align: center;
 }
 
@@ -24,11 +24,6 @@
     align-items: center;
     justify-content: space-between;
   }
-}
-
-.logo h3 {
-  color: var(--color-primary);
-  margin-bottom: var(--space-sm);
 }
 
 .teamGrid {
@@ -55,71 +50,62 @@
 }
 
 .teamMember a {
-  color: white;
+  color: var(--color-text-white);
   text-decoration: none;
 }
 
 .teamMember a:hover {
-  color: #84b254;
+  color: var(--color-primary);
 }
 
 .confettiButton {
   background: none;
   border: none;
-  color: white;
+  color: var(--color-text-white);
   cursor: pointer;
   font-family: inherit;
   font-size: inherit;
   padding: 0;
   text-align: center;
-  transition: color 0.3s;
+  transition: color var(--transition-medium);
 }
 
 .confettiButton:hover {
-  color: #f39c12;
+  color: var(--color-accent);
 }
 
 .confettiButton:hover .icon {
-  background-color: rgba(243, 156, 18, 0.2);
-  color: #f39c12;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
 
+/* spinning animation now uses global keyframes from index.css */
 .spinning {
   animation: spin 0.5s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 .githubButton {
   display: inline-flex;
   align-items: center;
-  background-color: #84b254;
-  color: white;
-  padding: 0.4rem 0.75rem;
-  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  margin-top: 0.5rem;
+  margin-top: var(--space-sm);
 }
 
 .githubButton:hover {
-  background-color: #6b9242;
+  background-color: var(--color-primary-dark);
 }
 
 .copyright {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.8rem;
-}
-
-.teamTitle {
-  color: #84b254;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-xs);
 }
 
 .leafIcon {
-  color: #84b254;
+  color: var(--color-primary);
 }
