@@ -1,2 +1,42 @@
 /* styles specific to the root app component for the layout and component styles in main UI. 
 Component or app-level styles that are unique to your root component (such as the overall app layout, grid, header, etc.). */
+
+/* Common container pattern */
+.container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Standard button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Add this line to center content */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  text-align: center;
+  transition: color var(--transition-default);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
+  padding: var(--space-sm) var(--space-md); /* Increased padding */
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: var(--font-size-lg); /* Add this for larger text */
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Animation utility classes */
+.spinning {
+  animation: spin 0.5s linear infinite;
+}

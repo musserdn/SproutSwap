@@ -14,6 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 import { css } from "@emotion/react";
 import React, { useState } from "react";
 import PlantContext from "./context/PlantContext";
+import './App.css';
 
 const httpLink = createHttpLink({
   uri: "/graphql",

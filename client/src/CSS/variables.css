@@ -1,0 +1,67 @@
+:root {
+  /* Color Palette */
+  --color-primary: #84b254;
+  --color-primary-dark: #6b9242;
+  --color-primary-light: rgba(132, 178, 84, 0.2);
+  
+  --color-secondary: #2c3e50;
+  --color-secondary-light: #34495e;
+  
+  --color-accent: #f39c12;
+  --color-accent-light: rgba(243, 156, 18, 0.2);
+  
+  --color-background: #fbebd4;
+  --color-background-dark: #53351d;
+  
+  --color-text: #2f2f2f;
+  --color-text-light: #666666;
+  --color-text-white: #ffffff;
+  
+  --color-success: #27ae60;
+  --color-error: #e74c3c;
+  
+  /* Typography */
+  --font-family: "Quicksand", sans-serif;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.2rem;
+  --font-size-xxl: 1.5rem;
+  --font-size-title: 2.2rem;
+  --font-size-hero: 3rem;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 3rem;
+  
+  /* Container Widths */
+  --container-sm: 600px;
+  --container-md: 800px;
+  --container-lg: 1000px;
+  --container-xl: 1200px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-circle: 50%;
+  
+  /* Box Shadow */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  
+  /* Z-index layers */
+  --z-index-dropdown: 100;
+  --z-index-modal: 200;
+  --z-index-tooltip: 300;
+}
