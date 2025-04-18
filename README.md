@@ -41,7 +41,11 @@ This project is licensed under the MIT license.
 Dan Musser, Ike Yates, Lazuli Salciccioli, and Natalie Gindraux. For those who want to add to this project, please contact us on Github.
 
 ## Tests
-To test that this is working, run npm start and test functionality on the site. You can test queries directly in Apollo. 
+To test that this is working, run npm start and test functionality on the site. You can test queries directly in Apollo. To access Apollo, you'll need to use the login mutation to retrieve your authentication token. Once you have the token, include it in your request headers as follows: 
+    {
+        "authorization": "Bearer YOUR_TOKEN_HERE"
+    }
+
 
 ## Questions
 If you have any questions, please find us on GitHub at https://github.com/musserdn/SproutSwap
