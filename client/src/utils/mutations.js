@@ -34,24 +34,6 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_GARDEN = gql`
-  mutation addGarden($input: GardenInput!) {
-    addGarden(input: $input) {
-      _id
-      user {
-        _id
-        username
-      }
-      plants {
-        _id
-        name
-        plantApiId
-        imgUrl
-      }
-    }
-  }
-`;
-
 export const ADD_PLANT_TO_GARDEN = gql`
   mutation addPlantToGarden($gardenId: ID!, $plantId: ID!) {
     addPlantToGarden(gardenId: $gardenId, plantId: $plantId) {
@@ -89,7 +71,7 @@ export const REMOVE_PLANT_FROM_GARDEN = gql`
 `;
 
 export const UPDATE_GARDEN = gql`
-  mutation updateGarden($userId: ID!, $plants: [Plant]) {
+  mutation updateGarden($userId: ID!, $plants: [PlantInput]) {
     updateGarden(userId: $userId, plants: $plants) {
       _id
       username
