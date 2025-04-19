@@ -94,6 +94,13 @@ h2 {
 h3 {
   font-size: var(--font-size-xxl);
   margin-bottom: var(--space-sm);
+  color: var(--color-primary);
+}
+
+h4 {
+  font-size: var(--font-size-l);
+  margin-bottom: var(--space-sm);
+  color: var(--color-primary);
 }
 
 .tagline {

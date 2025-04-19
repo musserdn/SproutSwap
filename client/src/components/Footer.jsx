@@ -18,7 +18,7 @@ const Footer = () => {
     // Function to trigger confetti explosion
     const triggerConfetti = () => {
         setConfettiTriggered(true);
-        
+
         // Create confetti explosion
         confetti({
             particleCount: 150,
@@ -26,7 +26,7 @@ const Footer = () => {
             origin: { y: 0.8 },
             colors: ['#84b254', '#2c3e50', '#f39c12', '#3498db', '#e74c3c']
         });
-        
+
         // Reset the state after a short delay
         setTimeout(() => setConfettiTriggered(false), 1000);
     };
@@ -54,7 +54,8 @@ const Footer = () => {
             github: 'https://github.com/kerriamber'
         },
         {
-            icon: <FontAwesomeIcon icon={faSunPlantWilt} className={confettiTriggered ? styles.spinning : ''} />,
+            
+            icon: <FontAwesomeIcon icon={faSunPlantWilt} className={confettiTriggered ? "spinning" : ''} />,
             onClick: triggerConfetti,
             isButton: true
         }
@@ -62,9 +63,9 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <div className={styles.container}>
+            <div className="container">
                 <div className={styles.footerContent}>
-                    <div className={styles.logo}>
+                    <div>
                         <h3>SproutSwap</h3>
                         <p>A community platform for plant enthusiasts</p>
                         <p>to share knowledge and trade plants.</p>
@@ -72,19 +73,19 @@ const Footer = () => {
                             href="https://github.com/musserdn/SproutSwap"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={styles.githubButton}
+                            className="btn btn-primary"
                         >
-                            <FontAwesomeIcon icon={faGithubAlt} style={{ marginRight: '0.4rem' }} /> GitHub
+                            <FontAwesomeIcon icon={faGithubAlt} className="mr-xs" /> GitHub
                         </a>
                     </div>
 
                     <div>
-                        <h4 className={styles.teamTitle}>Our Team</h4>
+                        <h4>Our Team</h4>
                         <div className={styles.teamGrid}>
                             {teamMembers.map((member, index) => (
                                 <div key={index} className={styles.teamMember}>
                                     {member.isButton ? (
-                                        <button 
+                                        <button
                                             onClick={member.onClick}
                                             className={styles.confettiButton}
                                         >
