@@ -29,12 +29,6 @@ const PlantList = ({ plants, isSearch = true }) => {
     garden.forEach((plant) => {
       initialState[plant.plantApiId] = true;
     });
-    console.log(initialState);
-    console.log(userQuery);
-    
-    userQuery.data.me.garden.forEach((plant) => {
-      console.log(plant);
-    });
 
     setAddedPlants(initialState);
   }, [userQuery.loading]);
@@ -123,11 +117,11 @@ const PlantList = ({ plants, isSearch = true }) => {
                   plant.imgUrl ||
                   "https://dummyimage.com/150/53351d/008000&text=Image+Missing"
                 }
-                alt={plant.common_name || "Unknown Plant"}
+                alt={plant.common_name || plant.name || "Unknown Plant"}
                 style={{ width: "100%", borderRadius: "4px" }}
               />
               <p style={{ margin: "8px 0" }}>
-                {plant.common_name || "Unknown Plant"}
+                {plant.common_name || plant.name || "Unknown Plant"}
               </p>
               {isSearch && (
                 <button
