@@ -5,8 +5,10 @@ const plantSchema = new Schema(
   {
     // The plant API ID (like an identifier from an external API or your database)
     plantApiId: {
-      type: String,
+      type: Number,
       required: true, // Ensure this field is required
+      unique: true,
+      required: true
     },
     // The name of the plant
     name: {

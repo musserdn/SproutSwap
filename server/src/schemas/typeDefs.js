@@ -16,6 +16,12 @@ const typeDefs = `
     imgUrl: String 
   }
 
+  input PlantInput {
+    plantApiId: Int
+    name: String
+    imgUrl: String 
+  }
+
   input UserInput {
     username: String!
     email: String!
@@ -38,7 +44,7 @@ const typeDefs = `
   type Mutation {
     addUser(input: UserInput!): Auth
     login(email: String!, password: String!): Auth
-    updateGarden(userId: ID!, plantIds: [ID!]): User 
+    updateGarden(userId: ID!, plants: [PlantInput]): User 
     addFriend(friendId: ID!): User
     removeFriend(friendId: ID!): User
   }
