@@ -20,7 +20,11 @@ const resolvers = {
       }
     },
     user: async (_parent, { username }) => {
-      return User.findOne({ username }).select("-password -email").exec();
+      return User.findOne({ username })
+        .select("-password -email")
+        .populate('garden')
+        .populate('friends')
+        .exec();
     },
 
     // Query to get the authenticated user's information
@@ -28,7 +32,9 @@ const resolvers = {
     me: async (_parent, _args, context) => {
       // If the user is authenticated, find and return the user's information
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('garden');
+        return User.findOne({ _id: context.user._id })
+          .populate('garden')
+          .populate('friends');
       }
       // If the user is not authenticated, throw an AuthenticationError
       throw new AuthenticationError("Could not authenticate user.");
