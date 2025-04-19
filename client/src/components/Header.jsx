@@ -5,7 +5,7 @@ const Header = () => {
                 <img src="/src/assets/SproutSwapLogoNoWords.jpg" alt="SproutSwap Logo" className="logo" />
                 <h1>SproutSwap</h1>
             </div>
-            <p className="tagline">Welcome to your garden!</p>
+            <h3 className="tagline">Welcome to your garden!</h3>
         </header>
     );
 };

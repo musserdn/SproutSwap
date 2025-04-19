@@ -15,16 +15,16 @@ const FriendCard = ({ user, isFriend, onAddFriend }) => {
       <h4>{user.username}</h4>
       <button
         onClick={() => onAddFriend(user._id)}
-        className={`btn btn-primary ${isFriend ? styles.friendAdded : ""}`}
+        className="btn btn-primary"
         disabled={isFriend}
       >
         {isFriend ? (
           <>
-            <FaUserCheck/>  Friends
+            <FaUserCheck className="mr-sm"/>  Friends
           </>
         ) : (
           <>
-            <FaUserPlus/>  Add Friend
+            <FaUserPlus  className="mr-sm"/>  Add Friend
           </>
         )}
       </button>

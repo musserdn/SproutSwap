@@ -17,7 +17,7 @@ export default function SearchBar({ onSearch, placeholder }) {
       <form onSubmit={handleSearch}>
           <input type="text" placeholder={placeholder} onChange={(e) => setSearchValue(e.target.value)} />{" "}
           <button>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" />
           </button>
       </form>
     </div>

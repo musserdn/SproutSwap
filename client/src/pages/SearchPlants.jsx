@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import PlantList from '../components/PlantList';
 import { fetchSpeciesList } from '../utils/fetchPlants';
-import styles from './SearchPlants.module.css';
 
 const SearchPlants = () => {
   const [results, setResults] = useState([]);
@@ -24,14 +23,14 @@ const SearchPlants = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Search for Plants</h1>
+    <div className="searchContainer">
+      <h1 className="title">Search for Plants</h1>
       <SearchBar onSearch={handleSearch} placeholder="Search for a plant..." />
-      {loading && <p className={styles.status}>Loading...</p>}
-      {error && <p className={`${styles.status} ${styles.error}`}>{error}</p>}
-      <div className={styles.plantListWrapper}>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <header>
         <PlantList plants={results} />
-      </div>
+      </header>
     </div>
   );
 };

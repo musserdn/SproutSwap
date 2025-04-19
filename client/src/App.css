@@ -8,6 +8,11 @@ Component or app-level styles that are unique to your root component (such as th
   padding: 0 var(--space-md);
 }
 
+.searchContainer {
+  margin: 40px auto;
+  text-align: center;
+}
+
 /* Standard button styles */
 .btn {
   display: inline-flex;

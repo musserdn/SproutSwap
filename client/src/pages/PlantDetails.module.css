@@ -1,0 +1,103 @@
+.container {
+  max-width: var(--container-xl, 1200px);
+  margin: 0 auto;
+  padding: var(--space-lg, 2rem);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-lg, 2rem);
+}
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    gap: var(--space-lg, 2rem);
+  }
+}
+
+.image {
+  flex: 1;
+}
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.1));
+}
+
+.title {
+  flex: 2;
+}
+.title h1 {
+  color: var(--color-text-dark, #2c3e50);
+  margin-bottom: var(--space-xs, 0.5rem);
+}
+.scientific-name {
+  font-style: italic;
+  color: var(--color-text-light, #7f8c8d);
+  margin-bottom: var(--space-md, 1rem);
+}
+.family {
+  margin-bottom: var(--space-md, 1rem);
+}
+
+.description {
+  margin-bottom: var(--space-lg, 2rem);
+  line-height: 1.6;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md, 1.5rem);
+  margin-bottom: var(--space-lg, 2rem);
+}
+
+.infoCard {
+  background-color: var(--color-background-light, #f9f9f9);
+  border-radius: var(--radius-md, 8px);
+  padding: var(--space-lg, 1.5rem);
+  box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05));
+}
+.infoCard h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs, 0.5rem);
+  color: var(--color-primary, #84b254);
+  margin-bottom: var(--space-md, 1rem);
+  font-size: var(--font-size-md, 1.2rem);
+}
+.infoCard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.infoCard li {
+  margin-bottom: var(--space-xs, 0.5rem);
+  display: flex;
+  align-items: flex-start;
+}
+.infoCard li::before {
+  content: "•";
+  color: var(--color-primary, #84b254);
+  margin-right: var(--space-xs, 0.5rem);
+}
+.infoCard p {
+  margin: 0;
+}
+
+.backButton {
+  background-color: #84b254;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.backButton:hover {
+  background-color: #76a244;
+}
