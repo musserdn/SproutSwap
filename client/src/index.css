@@ -1,63 +1,9 @@
-/* Import CSS files with corrected paths */
+/* Import CSS files */
 @import './CSS/reset.css';
 @import './CSS/variables.css';
 @import './CSS/utilities.css';
 @import './App.css';
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap");
-
-:root {
-  /* Color Palette */
-  --color-primary: #84b254;
-  --color-primary-dark: #6b9242;
-  --color-primary-light: rgba(132, 178, 84, 0.2);
-  
-  --color-secondary: #2c3e50;
-  --color-secondary-light: #34495e;
-  
-  --color-accent: #f39c12;
-  --color-accent-light: rgba(243, 156, 18, 0.2);
-  
-  --color-text-white: #ffffff;
-  
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xxl: 2rem;
-  
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-circle: 50%;
-  
-  /* Container Widths */
-  --container-xl: 1200px;
-  
-  /* Transitions */
-  --transition-default: 0.3s ease;
-  --transition-medium: 0.3s ease;
-
-  /* Font Sizes */
-  --font-size-hero: 3rem;
-  --font-size-title: 2rem;
-  --font-size-xxl: 1.5rem;
-  --font-size-lg: 1.2rem;
-
-  /* Font Family */
-  --font-family: "Quicksand", sans-serif;
-
-  /* Background Colors */
-  --color-background: #fbebd4;
-  --color-background-dark: #53351d;
-
-  --color-text: black;
-}
-
-:root {
-  --hover-green: #84b254;
-  --bg-yellow: #fbebd4;
-  --bg-darkbrown: #53351d;
-}
 
 /* Common animations */
 @keyframes spin {
@@ -93,14 +39,21 @@ h2 {
 
 h3 {
   font-size: var(--font-size-xxl);
+  font-weight: bold;
   margin-bottom: var(--space-sm);
   color: var(--color-primary);
 }
 
 h4 {
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-lg);
   margin-bottom: var(--space-sm);
   color: var(--color-primary);
+}
+
+.title {
+  font-size: var(--font-size-title);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
 }
 
 .tagline {
@@ -165,7 +118,3 @@ button:hover,
 .plant-card:hover {
   cursor: url("/src/assets/carrot-cursor.png"), pointer;
 }
-
-
-
-

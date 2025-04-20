@@ -1,18 +1,6 @@
-.container {
-  margin: 40px auto;
-  max-width: 1000px;
-  padding: 20px;
-}
-
-.title {
-  font-size: 2.5rem;
-  margin-bottom: 24px;
-  color: #333;
-}
-
 .cardGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--space-lg, 20px);
   justify-content: center;
 }

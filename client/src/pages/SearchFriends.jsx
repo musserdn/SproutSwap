@@ -53,20 +53,20 @@ const FriendsSearch = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Find Fellow Gardeners</h2>
+    <div className="searchContainer">
+      <h2 className="title">Find Fellow Gardeners</h2>
 
-      <div className={styles.searchBar}>
+      <div>
         <SearchBar onSearch={handleSearch} placeholder="Search for gardeners..." />
       </div>
 
-      <div className={styles.searchResults}>
-        {loading && <p className={styles.loadingText}>Searching...</p>}
-        {error && <p className={styles.error}>Error: {error}</p>}
+      <div>
+        {loading && <p>Searching...</p>}
+        {error && <p>Error: {error}</p>}
         
         {searchResults.length > 0 && (
           <>
-            <h3 className={styles.sectionTitle}>Search Results</h3>
+            <h3>Search Results</h3>
             <div className={styles.cardGrid}>
               {searchResults.map(user => (
                 <FriendCard 
@@ -81,12 +81,12 @@ const FriendsSearch = () => {
         )}
         
         {!loading && !error && searchResults.length === 0 && (
-          <p className={styles.emptyMessage}>No users found. Try a different search term.</p>
+          <header>No users found. Try a different search term.</header>
         )}
       </div>
 
-      <div className={styles.friendsSection}>
-        <h3 className={styles.sectionTitle}>My Friends</h3>
+      <div>
+        <h3 className="mt-xxl">My Friends</h3>
         
         {myFriends.length > 0 ? (
           <div className={styles.cardGrid}>
@@ -100,9 +100,9 @@ const FriendsSearch = () => {
             ))}
           </div>
         ) : (
-          <p className={styles.emptyMessage}>
+          <header>
             You don't have any friends yet. Start by searching above!
-          </p>
+          </header>
         )}
       </div>
     </div>
