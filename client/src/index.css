@@ -1,8 +1,8 @@
 /* Import CSS files with corrected paths */
-@import './CSS/reset.css';
-@import './CSS/variables.css';
-@import './CSS/utilities.css';
-@import './App.css';
+@import "./CSS/reset.css";
+@import "./CSS/variables.css";
+@import "./CSS/utilities.css";
+@import "./App.css";
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap");
 
 :root {
@@ -10,29 +10,29 @@
   --color-primary: #84b254;
   --color-primary-dark: #6b9242;
   --color-primary-light: rgba(132, 178, 84, 0.2);
-  
+
   --color-secondary: #2c3e50;
   --color-secondary-light: #34495e;
-  
+
   --color-accent: #f39c12;
   --color-accent-light: rgba(243, 156, 18, 0.2);
-  
+
   --color-text-white: #ffffff;
-  
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xxl: 2rem;
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-circle: 50%;
-  
+
   /* Container Widths */
   --container-xl: 1200px;
-  
+
   /* Transitions */
   --transition-default: 0.3s ease;
   --transition-medium: 0.3s ease;
@@ -61,8 +61,12 @@
 
 /* Common animations */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Base styles using variables */
@@ -160,12 +164,7 @@ header {
 /* Cursor styles */
 .navbar-link:hover,
 footer a:hover,
-footer button:hover,
-button:hover,
-.plant-card:hover {
+footer,
+button:hover {
   cursor: url("/src/assets/carrot-cursor.png"), pointer;
 }
-
-
-
-
