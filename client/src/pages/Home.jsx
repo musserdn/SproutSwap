@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 import { ME } from '../utils/queries.js';
-import PlantList from "../components/PlantList.jsx";
+import PlantList from "../components/PlantList/PlantList.jsx";
 
 const Home = () => {
   const navigate = useNavigate();

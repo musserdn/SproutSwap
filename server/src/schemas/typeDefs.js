@@ -11,7 +11,7 @@ const typeDefs = `
 
   type Plant {
     _id: ID!
-    plantApiId: String
+    plantApiId: Int
     name: String
     imgUrl: String 
   }
