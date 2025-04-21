@@ -8,8 +8,8 @@ const Home = () => {
   const { data: meData, loading: meLoading, error: meError } = useQuery(ME);
 
   return (
-    <div className="home-container">
-      <h1>My Garden</h1>
+    <div className="home-container mb-xl">
+      <h2>My Garden</h2>
       <button
         onClick={() => navigate('/SearchPlants')}
         className="btn btn-primary"
