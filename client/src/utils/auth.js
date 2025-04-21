@@ -1,4 +1,5 @@
 // utils/auth.js
+import { jwtDecode } from "jwt-decode";
 
 // Get token from localStorage
 export const getToken = () => {
@@ -25,4 +26,18 @@ export const logout = () => {
 export const getAuthHeaders = () => {
   const token = getToken();
   return token ? { Authorization: `Bearer ${token}` } : {};
+};
+
+export const isTokenExpired = () => {
+  const token = getToken();
+  if (!token) return true;
+
+  try {
+    const decodedToken = jwtDecode(token);
+    const currentTime = Date.now() / 1000;
+    return decodedToken.exp < currentTime;
+  } catch (err) {
+    console.log("Error decoding token: ", error);
+    return true;
+  }
 };

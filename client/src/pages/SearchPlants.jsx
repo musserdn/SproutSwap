@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar';
-import PlantList from '../components/PlantList';
+import PlantList from '../components/PlantList/PlantList.jsx';
 import { fetchSpeciesList } from '../utils/fetchPlants';
 
 const SearchPlants = () => {
