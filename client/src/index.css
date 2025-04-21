@@ -22,7 +22,7 @@ body {
   font-family: var(--font-family);
   line-height: 1.5;
   /* Default cursor */
-  cursor: url("/src/assets/leaf-cursor.png"), pointer;
+  cursor: url("/leaf-cursor.png"), pointer;
 }
 
 /* Typography base styles */
@@ -119,5 +119,5 @@ header {
 footer a:hover,
 footer,
 button:hover {
-  cursor: url("/src/assets/carrot-cursor.png"), pointer;
+  cursor: url("/carrot-cursor.png"), pointer;
 }
