@@ -46,7 +46,9 @@ To test that this is working, run npm start and test functionality on the site. 
         "authorization": "Bearer YOUR_TOKEN_HERE"
     }
 
-
+To login to the site, you can use: 
+    email: nat@gmail.com
+    password: password
 ## Questions
 If you have any questions, please find us on GitHub at https://github.com/musserdn/SproutSwap
     [musserdn](https://github.com/musserdn).
